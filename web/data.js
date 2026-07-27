@@ -1,368 +1,200 @@
 /*
- * Daily English learning content.
- * Each entry = one lesson. app.js picks "today's" lesson by the date,
- * so the content rotates automatically every day.
- * 每日英文學習內容；app.js 會依日期自動挑選當天的一課。
+ * News-based reading lessons (Tech / AI / Business), grounded in real 2026 news.
+ * English is rewritten for learners (paraphrased, not copied); each item links to
+ * a real source. app.js rotates one story per day and pairs it with a daily word.
+ * 以真實新聞為題材的每日短文；英文為學習者程度改寫，並附原始新聞連結。
  */
-const LESSONS = [
+const NEWS = [
   {
-    word: {
-      term: "resilient", phonetic: "/rɪˈzɪliənt/", pos: "adj.",
-      zh: "有韌性的；能快速恢復的",
-      def: "able to recover quickly from difficulties",
-      example: "She is resilient and bounced back after the setback.",
-      example_zh: "她很有韌性，在挫折後迅速振作起來。"
-    },
-    phrase: {
-      en: "bounce back", zh: "重新振作、恢復",
-      usage: "After failing the exam, he bounced back and tried again."
-    },
-    reading: {
-      title: "Falling and Rising", title_zh: "跌倒與站起",
-      en: "Everyone fails sometimes. What matters is not the fall, but how quickly you stand up again. Resilient people treat mistakes as lessons, not endings.",
-      zh: "每個人都會有失敗的時候。重要的不是跌倒，而是你能多快再站起來。有韌性的人把錯誤當成教訓，而不是終點。",
-      vocab: [["setback", "挫折"], ["recover", "恢復"], ["lesson", "教訓"]]
-    },
+    category: "Business",
+    source_title: "CNBC — Alphabet Q2 2026 earnings",
+    source_url: "https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html",
+    title: "Google Cloud Grows Fast", title_zh: "Google 雲端高速成長",
+    phrase: { en: "year over year", zh: "與去年同期相比", usage: "Sales rose 20% year over year." },
+    en: "Google Cloud reported revenue of about $24.8 billion in the second quarter of 2026, up roughly 82% from a year earlier. Strong demand for AI services made it one of the fastest-growing parts of the company. Cloud now makes up a larger share of Alphabet's total business than it did two years ago.",
+    zh: "Google 雲端在 2026 年第二季營收約 248 億美元，較去年同期成長約 82%。市場對 AI 服務的強勁需求，使它成為公司成長最快的部門之一。雲端在 Alphabet 整體業務中的占比，也比兩年前更高了。",
+    vocab: [["revenue", "營收"], ["quarter", "季度"], ["demand", "需求"], ["share", "占比"]],
     quiz: [
-      { q: "What does “resilient” mean?", q_zh: "「resilient」是什麼意思？",
-        options: ["能快速恢復的", "懶惰的", "昂貴的", "安靜的"], answer: 0,
-        explain: "resilient = 有韌性的、能快速恢復的。" },
-      { q: "Choose the sentence that uses “bounce back” correctly.", q_zh: "哪一句正確使用「bounce back」？",
-        options: ["He bounced back after the loss.", "He bounced back the door.", "He bounced back a coffee.", "He is a bounce back."], answer: 0,
-        explain: "bounce back 指從困境中重新振作。" },
-      { q: "According to the passage, what matters most?", q_zh: "根據短文，最重要的是什麼？",
-        options: ["How fast you rise again", "How much you earn", "How tall you are", "Never failing"], answer: 0,
-        explain: "文章重點是「能多快再站起來」。" }
+      { q: "How much did Google Cloud revenue grow year over year?", q_zh: "Google 雲端營收年增約多少？",
+        options: ["約 82%", "約 8%", "約 24%", "下滑"], answer: 0, explain: "報導指出年增約 82%。" },
+      { q: "What drove the strong growth?", q_zh: "成長主要來自什麼？",
+        options: ["對 AI 服務的需求", "廣告下滑", "裁員", "利率"], answer: 0, explain: "文中說是 AI 服務的強勁需求。" }
     ]
   },
   {
-    word: {
-      term: "ambiguous", phonetic: "/æmˈbɪɡjuəs/", pos: "adj.",
-      zh: "模稜兩可的；含糊不清的",
-      def: "having more than one possible meaning",
-      example: "His answer was ambiguous, so no one knew his real opinion.",
-      example_zh: "他的回答模稜兩可，沒人知道他真正的想法。"
-    },
-    phrase: {
-      en: "on the fence", zh: "猶豫不決、拿不定主意",
-      usage: "I'm still on the fence about which job to take."
-    },
-    reading: {
-      title: "Say What You Mean", title_zh: "把話說清楚",
-      en: "Clear words save time. When a message is ambiguous, people guess — and often guess wrong. Good communicators choose simple, exact language.",
-      zh: "清楚的用字能節省時間。當訊息模稜兩可時，人們只能猜測，而且常常猜錯。善於溝通的人會選擇簡單、精確的語言。",
-      vocab: [["message", "訊息"], ["guess", "猜測"], ["exact", "精確的"]]
-    },
+    category: "Business",
+    source_title: "Fortune — Big Tech earnings & AI spending",
+    source_url: "https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/",
+    title: "The Cost of the AI Race", title_zh: "AI 競賽的代價",
+    phrase: { en: "double down on", zh: "加碼投入、更加專注於", usage: "The firm doubled down on AI research." },
+    en: "The largest technology companies are spending huge amounts to build AI. After investing hundreds of billions of dollars from 2023 to 2025, they are on track to spend even more in 2026 alone. Some investors worry that this heavy spending, called capital expenditure, may hurt profits before it pays off.",
+    zh: "最大的幾家科技公司正投入巨資打造 AI。在 2023 到 2025 年砸下數千億美元後，光是 2026 年就可能花得更多。有些投資人擔心，這種被稱為「資本支出」的龐大投資，可能在回收之前先壓縮了獲利。",
+    vocab: [["invest", "投資"], ["capital expenditure", "資本支出"], ["profit", "利潤"], ["pay off", "獲得回報"]],
     quiz: [
-      { q: "“Ambiguous” is closest to…", q_zh: "「ambiguous」最接近？",
-        options: ["含糊不清的", "美麗的", "危險的", "免費的"], answer: 0,
-        explain: "ambiguous = 模稜兩可、含糊不清。" },
-      { q: "“On the fence” means you are…", q_zh: "「on the fence」表示你？",
-        options: ["猶豫不決", "非常生氣", "睡著了", "很有錢"], answer: 0,
-        explain: "on the fence 指還沒下定決心。" },
-      { q: "What do good communicators choose?", q_zh: "善於溝通的人會選擇？",
-        options: ["Simple, exact language", "Long, difficult words", "Silence", "Ambiguous messages"], answer: 0,
-        explain: "文章說要選簡單而精確的語言。" }
+      { q: "What is “capital expenditure”?", q_zh: "「capital expenditure」是什麼？",
+        options: ["資本支出", "薪水", "股利", "稅"], answer: 0, explain: "capital expenditure = 資本支出（capex）。" },
+      { q: "Why are some investors worried?", q_zh: "投資人為何擔心？",
+        options: ["高支出可能先壓縮獲利", "公司太小", "沒有需求", "AI 被禁止"], answer: 0, explain: "擔心龐大支出在回收前壓縮利潤。" }
     ]
   },
   {
-    word: {
-      term: "diligent", phonetic: "/ˈdɪlɪdʒənt/", pos: "adj.",
-      zh: "勤勉的；用功的",
-      def: "showing careful and steady effort in work",
-      example: "A diligent student reviews notes every day.",
-      example_zh: "勤勉的學生每天複習筆記。"
-    },
-    phrase: {
-      en: "keep at it", zh: "持續努力、堅持下去",
-      usage: "Learning English is hard, but keep at it and you'll improve."
-    },
-    reading: {
-      title: "Small Steps, Every Day", title_zh: "每天一小步",
-      en: "Progress is rarely sudden. A diligent learner studies a little each day. Over months, those small steps add up to a big change.",
-      zh: "進步很少是突然發生的。勤勉的學習者每天讀一點。幾個月後，這些小步累積成巨大的改變。",
-      vocab: [["progress", "進步"], ["add up", "累積"], ["change", "改變"]]
-    },
+    category: "AI",
+    source_title: "Crescendo AI — Latest AI news",
+    source_url: "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+    title: "From Answering to Doing", title_zh: "從回答問題到完成工作",
+    phrase: { en: "shift from A to B", zh: "從 A 轉向 B", usage: "The market shifted from desktop to mobile." },
+    en: "In 2026, AI is moving from simply answering questions to actually completing tasks. New “agent” systems can be trusted with narrow, well-defined jobs, such as booking a meeting or filing a report. Businesses are testing these agents carefully, giving them clear limits so they stay reliable.",
+    zh: "2026 年，AI 正從單純回答問題，走向真正完成任務。新的「代理（agent）」系統可以被託付範圍明確的工作，例如安排會議或提交報告。企業正謹慎測試這些代理，並給予清楚的限制，好讓它們維持可靠。",
+    vocab: [["agent", "AI 代理程式"], ["task", "任務"], ["reliable", "可靠的"], ["limit", "限制"]],
     quiz: [
-      { q: "A “diligent” person is…", q_zh: "「diligent」的人是？",
-        options: ["用功的", "遲到的", "害羞的", "幸運的"], answer: 0,
-        explain: "diligent = 勤勉、用功。" },
-      { q: "“Keep at it” encourages you to…", q_zh: "「keep at it」是在鼓勵你？",
-        options: ["繼續努力", "放棄", "睡覺", "生氣"], answer: 0,
-        explain: "keep at it = 堅持下去。" },
-      { q: "How does the learner in the passage study?", q_zh: "短文中的學習者怎麼讀書？",
-        options: ["A little each day", "Only before exams", "Never", "All night once"], answer: 0,
-        explain: "文中強調每天讀一點、日積月累。" }
+      { q: "What can AI “agents” do?", q_zh: "AI「代理」能做什麼？",
+        options: ["完成明確定義的任務", "只會聊天氣", "製造晶片", "取代電力"], answer: 0, explain: "代理能被託付範圍明確的工作。" },
+      { q: "How do businesses keep agents reliable?", q_zh: "企業如何讓代理維持可靠？",
+        options: ["給予清楚的限制", "完全放手", "關掉網路", "不測試"], answer: 0, explain: "文中說給予清楚限制。" }
     ]
   },
   {
-    word: {
-      term: "inevitable", phonetic: "/ɪnˈevɪtəbl/", pos: "adj.",
-      zh: "不可避免的；必然的",
-      def: "certain to happen and impossible to avoid",
-      example: "Change is inevitable, so it's better to prepare for it.",
-      example_zh: "改變是不可避免的，所以最好先做好準備。"
-    },
-    phrase: {
-      en: "sooner or later", zh: "遲早、早晚",
-      usage: "Sooner or later, everyone makes a mistake."
-    },
-    reading: {
-      title: "Embracing Change", title_zh: "擁抱改變",
-      en: "Some things are inevitable: seasons change, and so do we. Fighting change wastes energy. Accepting it lets us focus on what we can control.",
-      zh: "有些事是不可避免的：季節會變，我們也會變。抗拒改變只是浪費力氣。接受它，才能專注在我們能掌控的事情上。",
-      vocab: [["season", "季節"], ["accept", "接受"], ["control", "掌控"]]
-    },
+    category: "AI",
+    source_title: "MarketingProfs — AI Update",
+    source_url: "https://www.marketingprofs.com/opinions/2026/55247/ai-update-july-10-2026-ai-news-and-views-from-the-past-week",
+    title: "Bigger Context, Deeper Thinking", title_zh: "更大的上下文，更深的思考",
+    phrase: { en: "general availability", zh: "正式全面開放使用", usage: "The tool reached general availability in July." },
+    en: "Several new AI models were released in July 2026. One reached general availability with a very large context window, meaning it can read and remember far more text at once. It also offers a “deep think” mode that spends more time reasoning through hard problems before giving an answer.",
+    zh: "2026 年 7 月有多款新 AI 模型發表。其中一款正式全面開放，擁有非常大的「上下文視窗」，代表它能一次讀取並記住更多文字。它還提供「深度思考」模式，在回答難題前，會花更多時間推理。",
+    vocab: [["release", "發表"], ["context window", "上下文視窗"], ["reason", "推理"], ["mode", "模式"]],
     quiz: [
-      { q: "“Inevitable” means…", q_zh: "「inevitable」意思是？",
-        options: ["不可避免的", "可選的", "便宜的", "危險的"], answer: 0,
-        explain: "inevitable = 必然、不可避免。" },
-      { q: "“Sooner or later” means…", q_zh: "「sooner or later」意思是？",
-        options: ["遲早", "從不", "馬上", "也許不會"], answer: 0,
-        explain: "sooner or later = 遲早、早晚。" },
-      { q: "The passage suggests we should…", q_zh: "短文建議我們？",
-        options: ["Accept change", "Fight everything", "Do nothing", "Stop seasons"], answer: 0,
-        explain: "文章主張接受改變、專注可掌控之事。" }
+      { q: "A large “context window” lets a model…", q_zh: "大的「上下文視窗」讓模型能？",
+        options: ["一次記住更多文字", "跑更快", "更便宜", "上網"], answer: 0, explain: "context window 越大，一次能處理的文字越多。" },
+      { q: "What does “deep think” mode do?", q_zh: "「深度思考」模式做什麼？",
+        options: ["花更多時間推理", "隨機回答", "關機", "翻譯"], answer: 0, explain: "在回答前花更多時間推理。" }
     ]
   },
   {
-    word: {
-      term: "curiosity", phonetic: "/ˌkjʊəriˈɒsəti/", pos: "n.",
-      zh: "好奇心",
-      def: "a strong desire to learn or know something",
-      example: "Her curiosity led her to read about many subjects.",
-      example_zh: "她的好奇心讓她閱讀許多不同的主題。"
-    },
-    phrase: {
-      en: "think outside the box", zh: "跳脫框架思考、有創意地思考",
-      usage: "To solve this problem, we need to think outside the box."
-    },
-    reading: {
-      title: "The Power of Questions", title_zh: "問題的力量",
-      en: "Curiosity is the engine of learning. People who ask “why” and “what if” discover more than those who simply accept answers. Never stop asking questions.",
-      zh: "好奇心是學習的引擎。會問「為什麼」和「如果……會怎樣」的人，比只接受答案的人發現得更多。永遠不要停止發問。",
-      vocab: [["engine", "引擎"], ["discover", "發現"], ["accept", "接受"]]
-    },
+    category: "Tech",
+    source_title: "Tech-Insider — Cloud & chips 2026",
+    source_url: "https://tech-insider.org/google-cloud-82-percent-growth-aws-earnings-2026/",
+    title: "Custom Chips for AI", title_zh: "為 AI 打造的自研晶片",
+    phrase: { en: "in-house", zh: "自家研發的、內部的", usage: "They built the tool in-house." },
+    en: "To run AI cheaply and quickly, big cloud providers are designing their own chips in-house instead of buying them all from outside. These custom processors are made for specific AI tasks, which can lower cost and improve speed. Controlling the hardware also reduces reliance on a single supplier.",
+    zh: "為了又便宜又快地運行 AI，大型雲端業者正自行設計晶片，而不再全部向外採購。這些客製化處理器專為特定 AI 任務打造，能降低成本、提升速度。掌握硬體也能減少對單一供應商的依賴。",
+    vocab: [["chip", "晶片"], ["processor", "處理器"], ["supplier", "供應商"], ["reliance", "依賴"]],
     quiz: [
-      { q: "“Curiosity” is…", q_zh: "「curiosity」是？",
-        options: ["好奇心", "恐懼", "疲倦", "財富"], answer: 0,
-        explain: "curiosity = 好奇心。" },
-      { q: "“Think outside the box” means to be…", q_zh: "「think outside the box」是指？",
-        options: ["有創意的", "守規矩的", "安靜的", "疲累的"], answer: 0,
-        explain: "跳脫框架、有創意地思考。" },
-      { q: "What is called “the engine of learning”?", q_zh: "什麼被稱為「學習的引擎」？",
-        options: ["Curiosity", "Money", "Sleep", "Fear"], answer: 0,
-        explain: "文章說好奇心是學習的引擎。" }
+      { q: "Why design chips “in-house”?", q_zh: "為何要「自家」設計晶片？",
+        options: ["降低成本並減少對供應商的依賴", "為了好看", "因為便宜的手機", "政府要求"], answer: 0, explain: "可降成本、提速並減少對單一供應商依賴。" },
+      { q: "“In-house” means…", q_zh: "「in-house」意思是？",
+        options: ["自家研發的", "在戶外", "免費的", "二手的"], answer: 0, explain: "in-house = 內部、自家完成。" }
     ]
   },
   {
-    word: {
-      term: "genuine", phonetic: "/ˈdʒenjuɪn/", pos: "adj.",
-      zh: "真誠的；真正的",
-      def: "real and sincere; not fake",
-      example: "He gave a genuine smile when he saw his old friend.",
-      example_zh: "看到老朋友時，他露出真誠的微笑。"
-    },
-    phrase: {
-      en: "mean it", zh: "是認真的、真心的",
-      usage: "When I say thank you, I really mean it."
-    },
-    reading: {
-      title: "Being Real", title_zh: "做真實的自己",
-      en: "People can feel the difference between a polite reply and a genuine one. Honesty builds trust. When you speak, mean what you say.",
-      zh: "人們能感受到禮貌性回應與真誠回應之間的差別。誠實建立信任。當你說話時，要說到做到、真心以對。",
-      vocab: [["polite", "禮貌的"], ["honesty", "誠實"], ["trust", "信任"]]
-    },
+    category: "Business",
+    source_title: "CNBC — Meta sells AI compute",
+    source_url: "https://www.cnbc.com/2026/07/01/meta-stock-cloud-ai-compute.html",
+    title: "Renting Out Spare Power", title_zh: "把多餘的算力租出去",
+    phrase: { en: "excess capacity", zh: "過剩的產能／容量", usage: "They sold their excess capacity to other firms." },
+    en: "One large tech company decided to rent out its spare AI computing power to other businesses. After building more capacity than it needed, selling the excess turns an unused resource into a new revenue stream. Investors welcomed the move, and the company's stock rose.",
+    zh: "一家大型科技公司決定把多餘的 AI 運算算力出租給其他企業。在建置了超出自身所需的容量後，把過剩的部分賣出，等於把閒置資源變成新的收入來源。投資人樂見此舉，公司股價因此上漲。",
+    vocab: [["capacity", "容量"], ["excess", "過剩"], ["revenue stream", "收入來源"], ["stock", "股價"]],
     quiz: [
-      { q: "“Genuine” means…", q_zh: "「genuine」意思是？",
-        options: ["真誠的", "假的", "昂貴的", "困難的"], answer: 0,
-        explain: "genuine = 真誠、真正的。" },
-      { q: "“I mean it” shows you are…", q_zh: "「I mean it」表示你？",
-        options: ["認真的", "開玩笑的", "生氣的", "困惑的"], answer: 0,
-        explain: "mean it = 是認真、真心的。" },
-      { q: "According to the passage, honesty builds…", q_zh: "根據短文，誠實能建立？",
-        options: ["Trust", "Money", "Fear", "Noise"], answer: 0,
-        explain: "文章說誠實建立信任。" }
+      { q: "What did the company do with spare compute?", q_zh: "公司如何處理多餘的算力？",
+        options: ["出租給其他企業", "全部關閉", "捐給學校", "刪除"], answer: 0, explain: "把過剩算力出租，變成收入來源。" },
+      { q: "“Excess capacity” means…", q_zh: "「excess capacity」意思是？",
+        options: ["過剩的容量", "不夠用", "壞掉的機器", "免費電力"], answer: 0, explain: "excess capacity = 超出需求的產能/容量。" }
     ]
   },
   {
-    word: {
-      term: "overcome", phonetic: "/ˌoʊvərˈkʌm/", pos: "v.",
-      zh: "克服；戰勝",
-      def: "to successfully deal with a problem or difficulty",
-      example: "She worked hard to overcome her fear of speaking English.",
-      example_zh: "她努力克服說英文的恐懼。"
-    },
-    phrase: {
-      en: "get over", zh: "克服、走出（困境或情緒）",
-      usage: "It took him a week to get over the disappointment."
-    },
-    reading: {
-      title: "One Fear at a Time", title_zh: "一次克服一個恐懼",
-      en: "To overcome a fear, face it in small steps. Speak one sentence, then two. Confidence grows each time you try.",
-      zh: "要克服恐懼，就用小步驟面對它。先說一句，再說兩句。每一次嘗試，自信都會增長。",
-      vocab: [["face", "面對"], ["confidence", "自信"], ["grow", "增長"]]
-    },
+    category: "Tech",
+    source_title: "MarketingProfs — AI Update (EU rules)",
+    source_url: "https://www.marketingprofs.com/opinions/2026/55247/ai-update-july-10-2026-ai-news-and-views-from-the-past-week",
+    title: "Cars That Watch for Tired Drivers", title_zh: "會偵測疲勞駕駛的汽車",
+    phrase: { en: "come into effect", zh: "（法規）開始生效", usage: "The new rule came into effect in July." },
+    en: "Since July 2026, all newly registered cars in the European Union must include a system that detects driver distraction. Using sensors and software, the car can tell when a driver is not paying attention and give a warning. The goal is to make roads safer as technology becomes part of everyday driving.",
+    zh: "自 2026 年 7 月起，歐盟所有新登記的汽車都必須配備偵測「駕駛分心」的系統。透過感測器與軟體，車輛能判斷駕駛是否分神並發出警示。目的是在科技融入日常駕駛的同時，讓道路更安全。",
+    vocab: [["register", "登記"], ["detect", "偵測"], ["distraction", "分心"], ["warning", "警示"]],
     quiz: [
-      { q: "“Overcome” means to…", q_zh: "「overcome」意思是？",
-        options: ["克服", "忘記", "購買", "打開"], answer: 0,
-        explain: "overcome = 克服、戰勝。" },
-      { q: "“Get over” something means to…", q_zh: "「get over」某事是指？",
-        options: ["走出來、克服", "喜歡上", "忘了買", "重複做"], answer: 0,
-        explain: "get over = 克服、走出困境或情緒。" },
-      { q: "How does confidence grow, per the passage?", q_zh: "根據短文，自信如何增長？",
-        options: ["Each time you try", "By waiting", "By sleeping", "It never grows"], answer: 0,
-        explain: "文章說每次嘗試自信都會增長。" }
+      { q: "What must new EU cars now include?", q_zh: "歐盟新車現在必須配備什麼？",
+        options: ["駕駛分心偵測系統", "免費 Wi-Fi", "太陽能板", "AI 司機"], answer: 0, explain: "須配備駕駛分心偵測系統。" },
+      { q: "“Come into effect” means…", q_zh: "「come into effect」意思是？",
+        options: ["開始生效", "被取消", "延後", "失效"], answer: 0, explain: "come into effect = 開始生效。" }
     ]
   },
   {
-    word: {
-      term: "perspective", phonetic: "/pərˈspektɪv/", pos: "n.",
-      zh: "觀點；看待事情的角度",
-      def: "a particular way of thinking about something",
-      example: "Traveling gave her a new perspective on life.",
-      example_zh: "旅行讓她對人生有了新的觀點。"
-    },
-    phrase: {
-      en: "put yourself in someone's shoes", zh: "換位思考、設身處地",
-      usage: "Before you judge, put yourself in their shoes."
-    },
-    reading: {
-      title: "Another Point of View", title_zh: "換個角度看",
-      en: "The same event can look very different from another perspective. When you put yourself in someone's shoes, arguments often turn into understanding.",
-      zh: "同一件事，從另一個角度看可能截然不同。當你設身處地為對方著想，爭執往往就會化為理解。",
-      vocab: [["event", "事件"], ["argument", "爭執"], ["understanding", "理解"]]
-    },
+    category: "Business",
+    source_title: "MarketingProfs — Korea AI investment",
+    source_url: "https://www.marketingprofs.com/opinions/2026/55247/ai-update-july-10-2026-ai-news-and-views-from-the-past-week",
+    title: "A Nation Bets on Chips", title_zh: "舉國押注晶片",
+    phrase: { en: "invest in", zh: "投資於", usage: "The country invests heavily in education." },
+    en: "South Korea announced a large, ten-year plan to invest in semiconductors, AI infrastructure, and robotics. Major companies are expected to commit huge sums to build new chip factories. Governments and firms increasingly see advanced chips as key to future economic growth.",
+    zh: "南韓宣布一項為期十年的龐大計畫，投資於半導體、AI 基礎設施與機器人。大型企業預計將投入巨額資金興建新晶圓廠。各國政府與企業愈來愈把先進晶片視為未來經濟成長的關鍵。",
+    vocab: [["announce", "宣布"], ["semiconductor", "半導體"], ["infrastructure", "基礎設施"], ["commit", "投入承諾"]],
     quiz: [
-      { q: "“Perspective” means…", q_zh: "「perspective」意思是？",
-        options: ["觀點、角度", "禮物", "距離", "價格"], answer: 0,
-        explain: "perspective = 觀點、看事情的角度。" },
-      { q: "“Put yourself in someone's shoes” means…", q_zh: "「put yourself in someone's shoes」意思是？",
-        options: ["設身處地", "穿別人的鞋", "逃跑", "換工作"], answer: 0,
-        explain: "此片語意為換位思考、設身處地。" },
-      { q: "What can arguments turn into?", q_zh: "爭執可以化為什麼？",
-        options: ["Understanding", "Money", "Noise", "Shoes"], answer: 0,
-        explain: "文章說設身處地能把爭執化為理解。" }
+      { q: "What is South Korea investing in?", q_zh: "南韓投資於什麼？",
+        options: ["半導體、AI、機器人", "只有農業", "電影", "旅遊"], answer: 0, explain: "半導體、AI 基礎設施與機器人。" },
+      { q: "Advanced chips are seen as key to…", q_zh: "先進晶片被視為什麼的關鍵？",
+        options: ["未來經濟成長", "便宜的食物", "更短工時", "太空旅行"], answer: 0, explain: "被視為未來經濟成長的關鍵。" }
     ]
   },
   {
-    word: {
-      term: "abundant", phonetic: "/əˈbʌndənt/", pos: "adj.",
-      zh: "豐富的；大量的",
-      def: "existing in large quantities; more than enough",
-      example: "The region has abundant natural resources.",
-      example_zh: "這個地區有豐富的天然資源。"
-    },
-    phrase: {
-      en: "more than enough", zh: "綽綽有餘、多得很",
-      usage: "We have more than enough food for everyone."
-    },
-    reading: {
-      title: "A World of Plenty", title_zh: "豐足的世界",
-      en: "Opportunities to learn are abundant today. With a phone and curiosity, you have more than enough tools to grow. The only limit is effort.",
-      zh: "如今學習的機會非常豐富。只要有一支手機和好奇心，你就有綽綽有餘的工具去成長。唯一的限制是努力。",
-      vocab: [["opportunity", "機會"], ["tool", "工具"], ["limit", "限制"]]
-    },
+    category: "AI",
+    source_title: "Crescendo AI — AI safety index",
+    source_url: "https://www.crescendo.ai/news/latest-ai-news-and-updates",
+    title: "Grading AI Safety", title_zh: "為 AI 安全打分數",
+    phrase: { en: "fall short of", zh: "未達到、不及", usage: "The results fell short of expectations." },
+    en: "A new safety report gave grades to leading AI developers. It warned that some companies had weakened earlier promises to slow down if their systems became too risky. Even the top-rated company received only a modest grade, showing that safety practices still fall short of what many experts want.",
+    zh: "一份新的安全報告為領先的 AI 開發者評分。報告警告，有些公司削弱了先前的承諾——原本答應若系統風險過高就會放慢腳步。即使評分最高的公司也只拿到普通的分數，顯示安全做法仍未達到許多專家期望的標準。",
+    vocab: [["grade", "評分"], ["weaken", "削弱"], ["risky", "有風險的"], ["expert", "專家"]],
     quiz: [
-      { q: "“Abundant” means…", q_zh: "「abundant」意思是？",
-        options: ["豐富的", "稀少的", "破舊的", "危險的"], answer: 0,
-        explain: "abundant = 豐富、大量。" },
-      { q: "“More than enough” means…", q_zh: "「more than enough」意思是？",
-        options: ["綽綽有餘", "不太夠", "剛剛好", "完全沒有"], answer: 0,
-        explain: "more than enough = 綽綽有餘。" },
-      { q: "According to the passage, the only limit is…", q_zh: "根據短文，唯一的限制是？",
-        options: ["Effort", "Money", "Age", "Weather"], answer: 0,
-        explain: "文章說唯一的限制是努力。" }
+      { q: "What did the report warn about?", q_zh: "報告警告什麼？",
+        options: ["有公司削弱了安全承諾", "AI 太慢", "晶片太貴", "沒有使用者"], answer: 0, explain: "警告部分公司削弱了放慢的承諾。" },
+      { q: "“Fall short of” means…", q_zh: "「fall short of」意思是？",
+        options: ["未達到", "超越", "剛好符合", "放棄"], answer: 0, explain: "fall short of = 未達到、不及。" }
     ]
   },
   {
-    word: {
-      term: "efficient", phonetic: "/ɪˈfɪʃnt/", pos: "adj.",
-      zh: "有效率的",
-      def: "working well without wasting time or energy",
-      example: "This app is an efficient way to review vocabulary.",
-      example_zh: "這個 App 是複習單字的高效方法。"
-    },
-    phrase: {
-      en: "save time", zh: "節省時間",
-      usage: "Planning ahead can save you a lot of time."
-    },
-    reading: {
-      title: "Work Smart", title_zh: "聰明地工作",
-      en: "Being efficient is not about doing more; it is about doing the right things. A short, focused session often beats hours of distracted study.",
-      zh: "有效率不是做得更多，而是做對的事。一段短而專注的學習，往往勝過好幾個小時分心的讀書。",
-      vocab: [["focused", "專注的"], ["session", "時段"], ["distracted", "分心的"]]
-    },
+    category: "Tech",
+    source_title: "IG — Alphabet TPUs / neo-cloud",
+    source_url: "https://www.ig.com/en-ch/news-and-trade-ideas/alphabet-q2-2026-earnings-preview-260716",
+    title: "Selling AI Power to Others", title_zh: "把 AI 算力賣給別人",
+    phrase: { en: "roll out", zh: "推出、逐步推行", usage: "The company will roll out the service next year." },
+    en: "A major tech firm plans to rent its custom AI chips directly to other AI labs and companies. Instead of keeping all that computing power for itself, it will roll out a service that lets outside customers pay to use it. This could open a profitable new market built on its own hardware.",
+    zh: "一家大型科技公司計畫把自研的 AI 晶片直接租給其他 AI 實驗室與企業。它不再把所有算力留給自己，而是推出一項服務，讓外部客戶付費使用。這可能開創一個以自家硬體為基礎、具獲利潛力的新市場。",
+    vocab: [["rent", "出租"], ["custom", "客製化的"], ["customer", "客戶"], ["profitable", "有獲利的"]],
     quiz: [
-      { q: "“Efficient” means…", q_zh: "「efficient」意思是？",
-        options: ["有效率的", "昂貴的", "緩慢的", "吵鬧的"], answer: 0,
-        explain: "efficient = 有效率的。" },
-      { q: "“Save time” means to…", q_zh: "「save time」意思是？",
-        options: ["節省時間", "浪費時間", "遲到", "加班"], answer: 0,
-        explain: "save time = 節省時間。" },
-      { q: "What beats hours of distracted study?", q_zh: "什麼勝過好幾個小時分心的讀書？",
-        options: ["A short, focused session", "Sleeping", "Doing nothing", "More distractions"], answer: 0,
-        explain: "文章說短而專注的學習更有效。" }
+      { q: "What will the firm rent to others?", q_zh: "公司要把什麼租給別人？",
+        options: ["自研的 AI 晶片算力", "辦公室", "員工", "資料"], answer: 0, explain: "把自研 AI 晶片算力租給外部客戶。" },
+      { q: "“Roll out” means…", q_zh: "「roll out」意思是？",
+        options: ["推出", "收回", "隱藏", "退款"], answer: 0, explain: "roll out = 推出、逐步推行。" }
     ]
   },
   {
-    word: {
-      term: "gratitude", phonetic: "/ˈɡrætɪtuːd/", pos: "n.",
-      zh: "感激；感恩",
-      def: "the feeling of being thankful",
-      example: "She expressed her gratitude with a handwritten note.",
-      example_zh: "她用一張手寫卡片表達感激之情。"
-    },
-    phrase: {
-      en: "count your blessings", zh: "知足感恩、細數自己擁有的",
-      usage: "When things get hard, count your blessings."
-    },
-    reading: {
-      title: "A Thankful Heart", title_zh: "感恩的心",
-      en: "Gratitude changes how we see the world. When you count your blessings, small joys become visible again. Thankful people are often happier.",
-      zh: "感恩會改變我們看世界的方式。當你細數自己擁有的，微小的快樂便會再次被看見。懂得感恩的人往往更快樂。",
-      vocab: [["thankful", "感激的"], ["joy", "快樂"], ["visible", "看得見的"]]
-    },
+    category: "AI",
+    source_title: "BuildFastWithAI — AI news",
+    source_url: "https://www.buildfastwithai.com/blogs/ai-news-today-july-6-2026",
+    title: "Open Models Gain Ground", title_zh: "開放模型逐漸崛起",
+    phrase: { en: "gain ground", zh: "取得進展、逐漸普及", usage: "Electric cars are gaining ground worldwide." },
+    en: "Alongside closed, paid systems, several powerful open models were released in 2026. Because their code is openly available, developers can study, change, and run them freely. Supporters say open models speed up innovation, while critics warn they are harder to control.",
+    zh: "在封閉、付費的系統之外，2026 年也發表了多款強大的開放模型。由於程式碼公開可取得，開發者能自由研究、修改並運行它們。支持者認為開放模型能加速創新，批評者則警告它們較難被控管。",
+    vocab: [["open model", "開放模型"], ["available", "可取得的"], ["developer", "開發者"], ["innovation", "創新"]],
     quiz: [
-      { q: "“Gratitude” means…", q_zh: "「gratitude」意思是？",
-        options: ["感激", "憤怒", "無聊", "飢餓"], answer: 0,
-        explain: "gratitude = 感激、感恩。" },
-      { q: "“Count your blessings” means to…", q_zh: "「count your blessings」意思是？",
-        options: ["知足感恩", "計算金錢", "抱怨", "數羊"], answer: 0,
-        explain: "此片語指珍惜、感恩自己所擁有的。" },
-      { q: "Thankful people are often…", q_zh: "懂得感恩的人往往？",
-        options: ["Happier", "Angrier", "Richer", "Taller"], answer: 0,
-        explain: "文章說懂得感恩的人往往更快樂。" }
+      { q: "Why can developers change open models?", q_zh: "開發者為何能修改開放模型？",
+        options: ["程式碼公開可取得", "它們免費保固", "政府提供", "沒有理由"], answer: 0, explain: "因為程式碼開放、可自由取用。" },
+      { q: "What do critics warn?", q_zh: "批評者警告什麼？",
+        options: ["較難被控管", "太慢", "太貴", "沒有人用"], answer: 0, explain: "批評者擔心開放模型較難控管。" }
     ]
   },
   {
-    word: {
-      term: "confident", phonetic: "/ˈkɒnfɪdənt/", pos: "adj.",
-      zh: "有自信的",
-      def: "sure of yourself and your abilities",
-      example: "After lots of practice, she felt confident speaking English.",
-      example_zh: "經過大量練習後，她說英文時感到很有自信。"
-    },
-    phrase: {
-      en: "believe in yourself", zh: "相信自己",
-      usage: "Believe in yourself, even when others doubt you."
-    },
-    reading: {
-      title: "Trust Your Steps", title_zh: "相信自己的每一步",
-      en: "Confidence comes from practice, not luck. Every sentence you speak makes the next one easier. Believe in yourself and keep going.",
-      zh: "自信來自練習，而非運氣。你說出的每一句話，都讓下一句變得更容易。相信自己，繼續前進。",
-      vocab: [["practice", "練習"], ["luck", "運氣"], ["easier", "更容易的"]]
-    },
+    category: "Business",
+    source_title: "Yahoo Finance — Cloud demand 2026",
+    source_url: "https://finance.yahoo.com/technology/articles/5-cloud-computing-stocks-buy-115400804.html",
+    title: "Why Cloud Demand Keeps Rising", title_zh: "雲端需求為何持續攀升",
+    phrase: { en: "in the long run", zh: "長遠來看", usage: "In the long run, saving pays off." },
+    en: "Demand for cloud computing keeps rising as more companies move their software and data online. Running AI tools requires huge amounts of computing power, and renting it from the cloud is often cheaper than building your own data center. In the long run, analysts expect this trend to continue.",
+    zh: "隨著越來越多公司把軟體與資料搬上網路，雲端運算的需求持續攀升。運行 AI 工具需要龐大的運算能力，而向雲端租用，往往比自建資料中心更便宜。分析師預期，長遠來看這股趨勢會延續下去。",
+    vocab: [["demand", "需求"], ["computing power", "運算能力"], ["data center", "資料中心"], ["trend", "趨勢"]],
     quiz: [
-      { q: "“Confident” means…", q_zh: "「confident」意思是？",
-        options: ["有自信的", "疲累的", "害怕的", "生病的"], answer: 0,
-        explain: "confident = 有自信的。" },
-      { q: "“Believe in yourself” encourages…", q_zh: "「believe in yourself」是在鼓勵？",
-        options: ["自信", "放棄", "說謊", "偷懶"], answer: 0,
-        explain: "believe in yourself = 相信自己。" },
-      { q: "Confidence comes from…", q_zh: "自信來自？",
-        options: ["Practice", "Luck", "Money", "Sleep"], answer: 0,
-        explain: "文章說自信來自練習而非運氣。" }
+      { q: "Why do companies rent cloud power?", q_zh: "公司為何向雲端租用算力？",
+        options: ["常比自建資料中心便宜", "比較好看", "政府免費", "沒有其他選擇"], answer: 0, explain: "租用往往比自建資料中心便宜。" },
+      { q: "“In the long run” means…", q_zh: "「in the long run」意思是？",
+        options: ["長遠來看", "馬上", "從不", "昨天"], answer: 0, explain: "in the long run = 長遠來看。" }
     ]
   }
 ];
