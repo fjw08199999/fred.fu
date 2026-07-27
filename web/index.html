@@ -1,187 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>B.A. in Foreign Languages and Literatures — National Taiwan University</title>
-  <meta name="description" content="Undergraduate degree in Foreign Languages and Literatures: literature, language, and creative writing. Curriculum, admissions, and how to apply." />
+  <title>每日英文 Daily English</title>
+  <meta name="description" content="每天自動更新的英文學習網站：每日單字、例句片語、短文與小測驗。A daily English learning site." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="#top">National Taiwan<span> University</span></a>
-      <nav class="menu" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#curriculum">Curriculum</a>
-        <a href="#careers">Careers</a>
-        <a href="#admissions">Admissions</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="brand" href="#top">每日英文 <span>Daily English</span></a>
+      <div class="header-right">
+        <span id="streak" class="streak" title="連續學習天數 / Study streak">🔥 0</span>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="切換深淺色 / Toggle theme">🌙</button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-inner">
-        <p class="eyebrow">Department of Foreign Languages and Literatures</p>
-        <h1>B.A. in Foreign Languages and Literatures</h1>
-        <p class="lead">
-          A four-year degree exploring literature, language, and creative
-          writing — taught in English by internationally published scholars.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#admissions">Apply now</a>
-          <a class="btn btn-ghost" href="#curriculum">View curriculum</a>
-        </div>
-        <ul class="stats">
-          <li><strong>4 years</strong><span>Full-time</span></li>
-          <li><strong>128</strong><span>Credits</span></li>
-          <li><strong>94%</strong><span>Graduate employment</span></li>
-        </ul>
+  <main id="top" class="container">
+    <!-- Date / navigation -->
+    <section class="daybar">
+      <button id="prev-day" class="nav-btn" type="button">← 前一天 Prev</button>
+      <div class="daybar-center">
+        <p id="date-line" class="date-line">—</p>
+        <p id="lesson-line" class="lesson-line">—</p>
+      </div>
+      <button id="next-day" class="nav-btn" type="button">後一天 Next →</button>
+    </section>
+    <div class="today-row">
+      <button id="today-btn" class="link-btn" type="button">回到今天 Back to today</button>
+      <label class="toggle">
+        <input type="checkbox" id="zh-toggle" checked />
+        <span>顯示中文 Show Chinese</span>
+      </label>
+    </div>
+
+    <!-- Word of the day -->
+    <section class="card card-word">
+      <p class="card-label">📘 每日單字 · Word of the Day</p>
+      <div class="word-head">
+        <h2 id="word-term">—</h2>
+        <button id="speak-word" class="icon-btn" type="button" aria-label="發音 / Pronounce">🔊</button>
+      </div>
+      <p class="word-meta"><span id="word-phonetic"></span> <span id="word-pos" class="pos"></span></p>
+      <p id="word-zh" class="zh-text">—</p>
+      <p id="word-def" class="def">—</p>
+      <blockquote class="example">
+        <p id="word-example">—</p>
+        <p id="word-example-zh" class="zh-text small">—</p>
+      </blockquote>
+    </section>
+
+    <!-- Phrase of the day -->
+    <section class="card card-phrase">
+      <p class="card-label">💬 每日片語 · Phrase of the Day</p>
+      <div class="word-head">
+        <h2 id="phrase-en">—</h2>
+        <button id="speak-phrase" class="icon-btn" type="button" aria-label="發音 / Pronounce">🔊</button>
+      </div>
+      <p id="phrase-zh" class="zh-text">—</p>
+      <blockquote class="example">
+        <p id="phrase-usage">—</p>
+      </blockquote>
+    </section>
+
+    <!-- Reading of the day -->
+    <section class="card card-reading">
+      <p class="card-label">📖 每日短文 · Reading of the Day</p>
+      <h2 id="reading-title">—</h2>
+      <p id="reading-title-zh" class="zh-text small">—</p>
+      <p id="reading-en" class="reading-body">—</p>
+      <p id="reading-zh" class="zh-text reading-body">—</p>
+      <div class="vocab">
+        <span class="vocab-label">重點單字 Key words：</span>
+        <ul id="reading-vocab" class="vocab-list"></ul>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About the programme</h2>
-        <p class="section-lead">
-          The B.A. in Foreign Languages and Literatures gives you a deep command of
-          the English language and its literatures, from Chaucer to contemporary global
-          fiction. You will
-          learn to read critically, write persuasively, and think independently —
-          skills valued in every profession.
-        </p>
-        <div class="grid grid-3">
-          <article class="card">
-            <h3>Literature</h3>
-            <p>Study poetry, drama, and the novel across periods, cultures, and continents.</p>
-          </article>
-          <article class="card">
-            <h3>Language &amp; Linguistics</h3>
-            <p>Explore how English works — its grammar, history, and role in the world today.</p>
-          </article>
-          <article class="card">
-            <h3>Creative Writing</h3>
-            <p>Develop your own voice in fiction, poetry, and non-fiction workshops.</p>
-          </article>
-        </div>
+    <!-- Quiz of the day -->
+    <section class="card card-quiz">
+      <p class="card-label">📝 每日小測驗 · Daily Quiz</p>
+      <form id="quiz-form"></form>
+      <div class="quiz-actions">
+        <button id="quiz-submit" class="btn btn-primary" type="button">批改 Check</button>
+        <button id="quiz-reset" class="btn btn-ghost" type="button">重做 Retry</button>
       </div>
-    </section>
-
-    <section id="curriculum" class="section section-alt">
-      <div class="container">
-        <h2>Curriculum</h2>
-        <p class="section-lead">
-          A four-year path from language foundations to literary and linguistic
-          specialisation, built around the department's required and elective courses.
-        </p>
-        <div class="years">
-          <div class="year">
-            <h3>Year 1 — Foundations</h3>
-            <ul>
-              <li>Freshman English</li>
-              <li>English Oral Training (I)</li>
-              <li>Introduction to Western Literature</li>
-              <li>Second Foreign Language (I)</li>
-            </ul>
-          </div>
-          <div class="year">
-            <h3>Year 2 — Core</h3>
-            <ul>
-              <li>Survey of English Literature</li>
-              <li>Survey of American Literature</li>
-              <li>English Composition</li>
-              <li>Introduction to Linguistics</li>
-            </ul>
-          </div>
-          <div class="year">
-            <h3>Years 3 &amp; 4 — Electives</h3>
-            <ul>
-              <li>Shakespeare</li>
-              <li>The Novel · Drama · Poetry</li>
-              <li>Literary Criticism &amp; Theory</li>
-              <li>Phonetics · Syntax · Film · Creative Writing</li>
-            </ul>
-          </div>
-        </div>
-        <p class="section-lead" style="margin-top:2rem;">
-          Students complete a two-year sequence in a second foreign language
-          (French, German, Spanish, Japanese, or Latin) and choose electives across
-          the department's literature, linguistics, and film tracks.
-        </p>
-      </div>
-    </section>
-
-    <section id="careers" class="section">
-      <div class="container">
-        <h2>Where it leads</h2>
-        <p class="section-lead">
-          Foreign Languages and Literatures graduates are exceptional communicators. Our alumni work in:
-        </p>
-        <ul class="tags">
-          <li>Publishing &amp; Editing</li>
-          <li>Teaching &amp; Academia</li>
-          <li>Journalism &amp; Media</li>
-          <li>Marketing &amp; Communications</li>
-          <li>Law &amp; Public Policy</li>
-          <li>Content &amp; UX Writing</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="admissions" class="section section-alt">
-      <div class="container">
-        <h2>Admissions</h2>
-        <div class="grid grid-2">
-          <div>
-            <h3>Entry requirements</h3>
-            <ul class="checklist">
-              <li>Strong results on the General Scholastic Ability Test (學測 / GSAT), with emphasis on English and Chinese</li>
-              <li>High School English Listening Comprehension Test result</li>
-              <li>A demonstrated interest in language, literature, and cross-cultural studies</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Admission pathways</h3>
-            <ol class="steps">
-              <li><strong>Multi-Star Recommendation</strong> (繁星推薦)</li>
-              <li><strong>Personal Application</strong> (個人申請) — GSAT screening, then second-stage document review and interview</li>
-              <li><strong>Exam Placement</strong> (分發入學) via the Advanced Subjects Test (分科測驗)</li>
-              <li><strong>International &amp; Special Selection</strong> (國際學生 / 特殊選才)</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container contact">
-        <h2>Get in touch</h2>
-        <p class="section-lead">
-          Questions about the programme? The Department of Foreign Languages and
-          Literatures is here to help.
-        </p>
-        <p class="contact-line">
-          <a class="btn btn-primary" href="mailto:forex@ntu.edu.tw">Email the department</a>
-        </p>
-        <address class="contact-details">
-          <p>Email: <a href="mailto:forex@ntu.edu.tw">forex@ntu.edu.tw</a></p>
-          <p>Tel: +886-2-3366-3215</p>
-          <p>No. 1, Sec. 4, Roosevelt Road, Da&rsquo;an District, Taipei 106319, Taiwan</p>
-        </address>
-      </div>
+      <p id="quiz-result" class="quiz-result" hidden></p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> National Taiwan University — B.A. in Foreign Languages and Literatures. This is a demonstration website.</p>
+      <p>每天回來學一點，日積月累就是進步。Come back daily — small steps add up.</p>
+      <p class="muted">內容每日自動更新，共 <span id="total-lessons">—</span> 課循環。</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
