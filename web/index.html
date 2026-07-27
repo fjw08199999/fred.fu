@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>每日英文 Daily English — 科技・AI・商務</title>
+  <meta name="description" content="每天自動更新的中英雙語英文學習網站：科技/AI/商務單字、真實新聞短文、小測驗。點單字即時查意思，選句子即時翻譯，還能貼上任何文章學習。" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">每日英文 <span>Daily English</span></a>
+      <div class="header-right">
+        <span id="streak" class="streak" title="連續學習天數 / Study streak">🔥 0</span>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="切換深淺色 / Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <p class="tip container">
+    💡 <b>看不懂就查：</b>點任何英文<b>單字</b>立即顯示意思；用滑鼠或手指<b>選取一句/一段</b>會跳出「翻譯」。
+    Tap any word for its meaning; select a sentence to translate.
+  </p>
+
+  <main id="top" class="container">
+    <!-- Date / navigation -->
+    <section class="daybar">
+      <button id="prev-day" class="nav-btn" type="button">← 前一天</button>
+      <div class="daybar-center">
+        <p id="date-line" class="date-line">—</p>
+        <p id="lesson-line" class="lesson-line">—</p>
+      </div>
+      <button id="next-day" class="nav-btn" type="button">後一天 →</button>
+    </section>
+    <div class="today-row">
+      <button id="today-btn" class="link-btn" type="button">回到今天 Back to today</button>
+      <label class="toggle">
+        <input type="checkbox" id="zh-toggle" checked />
+        <span>顯示中文 Show Chinese</span>
+      </label>
+    </div>
+
+    <!-- Word of the day -->
+    <section class="card card-word">
+      <p class="card-label">📘 每日單字 · Word of the Day</p>
+      <div class="word-head">
+        <h2 id="word-term" class="taps">—</h2>
+        <button id="speak-word" class="icon-btn" type="button" aria-label="發音 / Pronounce">🔊</button>
+        <span id="word-cat" class="badge">—</span>
+      </div>
+      <p class="word-meta"><span id="word-pos" class="pos"></span></p>
+      <p id="word-zh" class="zh-text big">—</p>
+      <blockquote class="example">
+        <p id="word-example" class="taps">—</p>
+      </blockquote>
+    </section>
+
+    <!-- News reading of the day -->
+    <section class="card card-reading">
+      <div class="reading-top">
+        <p class="card-label">📰 每日新聞短文 · Today's Story</p>
+        <span id="reading-cat" class="badge">—</span>
+      </div>
+      <h2 id="reading-title" class="taps">—</h2>
+      <p id="reading-title-zh" class="zh-text small">—</p>
+      <p id="reading-en" class="reading-body taps">—</p>
+      <p id="reading-zh" class="zh-text reading-body">—</p>
+      <div class="vocab">
+        <span class="vocab-label">重點單字 Key words：</span>
+        <ul id="reading-vocab" class="vocab-list"></ul>
+      </div>
+      <p class="source">來源 Source：<a id="reading-source" href="#" target="_blank" rel="noopener">—</a></p>
+    </section>
+
+    <!-- Phrase of the day -->
+    <section class="card card-phrase">
+      <p class="card-label">💬 每日片語 · Phrase of the Day</p>
+      <div class="word-head">
+        <h2 id="phrase-en" class="taps">—</h2>
+        <button id="speak-phrase" class="icon-btn" type="button" aria-label="發音 / Pronounce">🔊</button>
+      </div>
+      <p id="phrase-zh" class="zh-text">—</p>
+      <blockquote class="example">
+        <p id="phrase-usage" class="taps">—</p>
+      </blockquote>
+    </section>
+
+    <!-- Quiz of the day -->
+    <section class="card card-quiz">
+      <p class="card-label">📝 每日小測驗 · Daily Quiz</p>
+      <form id="quiz-form"></form>
+      <div class="quiz-actions">
+        <button id="quiz-submit" class="btn btn-primary" type="button">批改 Check</button>
+        <button id="quiz-reset" class="btn btn-ghost" type="button">重做 Retry</button>
+      </div>
+      <p id="quiz-result" class="quiz-result" hidden></p>
+    </section>
+
+    <!-- Bring your own article -->
+    <section class="card card-reader">
+      <p class="card-label">📄 貼上任何文章 · Your Own Reader</p>
+      <p class="reader-hint">貼上任何英文新聞或文章，按「開始閱讀」後，一樣可以<b>點單字查意思</b>、<b>選句子看翻譯</b>。<br>Paste any English article, then tap words or select sentences to learn.</p>
+      <textarea id="reader-input" rows="5" placeholder="Paste English text here… 在這裡貼上英文文章"></textarea>
+      <div class="quiz-actions">
+        <button id="reader-go" class="btn btn-primary" type="button">開始閱讀 Read</button>
+        <button id="reader-clear" class="btn btn-ghost" type="button">清除 Clear</button>
+      </div>
+      <div id="reader-output" class="reader-output taps" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>每天回來學一點，日積月累就是進步。Small steps every day add up.</p>
+      <p class="muted">單字庫 <span id="total-words">—</span> 字（約一年不重複）· 新聞短文 <span id="total-news">—</span> 篇循環。</p>
+    </div>
+  </footer>
+
+  <!-- word definition popup -->
+  <div id="def-pop" class="def-pop" hidden>
+    <button id="def-close" class="def-close" type="button" aria-label="關閉">×</button>
+    <div id="def-body"></div>
+  </div>
+
+  <!-- floating translate button for selections -->
+  <button id="translate-btn" class="translate-btn" type="button" hidden>翻譯 Translate</button>
+
+  <script src="wordbank.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
