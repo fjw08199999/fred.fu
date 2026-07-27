@@ -187,6 +187,15 @@ body {
 
 .contact { text-align: center; }
 .contact-line { margin-top: 1.5rem; }
+.contact-details {
+  margin-top: 1.5rem;
+  font-style: normal;
+  font-family: system-ui, sans-serif;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.contact-details p { margin: 0.3rem 0; }
+.contact-details a { color: var(--accent); }
 
 /* Footer */
 .site-footer {
