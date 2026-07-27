@@ -1,6 +1,6 @@
-# English Studies Degree — Website
+# Foreign Languages and Literatures Degree — Website
 
-A static website for a **BA (Hons) English Studies** degree programme.
+A static website for a **B.A. in Foreign Languages and Literatures** degree programme.
 
 ## Files
 
@@ -18,7 +18,7 @@ the contents of this `web/` folder whenever changes land on the `master` branch.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
 
 After that, every push to `master` that touches `web/**` will build and publish
-the site automatically (National Taiwan University — BA (Hons) English Studies).
+the site automatically (National Taiwan University — B.A. in Foreign Languages and Literatures).
 You can also trigger it manually from the **Actions** tab
 via **Run workflow**.
 
